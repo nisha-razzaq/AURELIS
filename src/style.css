@@ -1,0 +1,752 @@
+/* =========================================================
+   AURELIS
+   PREMIUM GAME UI
+   ========================================================= */
+
+@import url(
+    "https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap"
+);
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+
+    margin: 0;
+
+    padding: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #07111d;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+}
+
+
+body {
+
+    position: relative;
+
+}
+
+
+canvas {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+
+/* =========================================================
+   LOADING SCREEN
+   ========================================================= */
+
+#aurelis-loading {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(55, 150, 210, 0.12),
+            transparent 34%
+        ),
+
+        linear-gradient(
+            180deg,
+            #071522 0%,
+            #081522 45%,
+            #050b12 100%
+        );
+
+    color: white;
+
+    opacity: 1;
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+
+}
+
+
+#aurelis-loading.loading-finished {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   SUBTLE BACKGROUND
+   ========================================================= */
+
+.loading-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            115deg,
+            transparent 0%,
+            rgba(255,255,255,0.015) 48%,
+            transparent 52%
+        );
+
+    opacity: 0.7;
+
+}
+
+
+/* =========================================================
+   SOFT BLUE LIGHT
+   ========================================================= */
+
+.loading-glow {
+
+    position: absolute;
+
+    width: 42vw;
+
+    height: 42vw;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    pointer-events: none;
+
+}
+
+
+.glow-one {
+
+    top: -25vw;
+
+    right: -12vw;
+
+    background:
+        rgba(71, 173, 231, 0.10);
+
+}
+
+
+.glow-two {
+
+    bottom: -30vw;
+
+    left: -18vw;
+
+    background:
+        rgba(31, 110, 168, 0.08);
+
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.loading-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: min(
+        700px,
+        86vw
+    );
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.loading-brand {
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        clamp(
+            3.2rem,
+            9vw,
+            7rem
+        );
+
+    font-weight: 600;
+
+    letter-spacing:
+        0.28em;
+
+    line-height: 1;
+
+    padding-left:
+        0.28em;
+
+    color: #ffffff;
+
+    text-shadow:
+
+        0 0 25px
+        rgba(135, 206, 235, 0.15),
+
+        0 0 70px
+        rgba(135, 206, 235, 0.08);
+
+}
+
+
+/* =========================================================
+   BRAND LINE
+   ========================================================= */
+
+.loading-line {
+
+    width: 44px;
+
+    height: 1px;
+
+    margin:
+        28px auto 24px;
+
+    background:
+        rgba(
+            135,
+            206,
+            235,
+            0.75
+        );
+
+}
+
+
+/* =========================================================
+   TAGLINE
+   ========================================================= */
+
+.loading-tagline {
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:
+        clamp(
+            0.72rem,
+            1.4vw,
+            0.95rem
+        );
+
+    font-weight: 500;
+
+    letter-spacing:
+        0.48em;
+
+    padding-left:
+        0.48em;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.82
+        );
+
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.loading-status {
+
+    margin-top:
+        92px;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:
+        0.62rem;
+
+    font-weight: 500;
+
+    letter-spacing:
+        0.32em;
+
+    padding-left:
+        0.32em;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.42
+        );
+
+    transition:
+        opacity 0.18s ease;
+
+}
+
+
+/* =========================================================
+   PROGRESS AREA
+   ========================================================= */
+
+.loading-bar {
+
+    position: relative;
+
+    width: min(
+        420px,
+        68vw
+    );
+
+    height: 2px;
+
+    margin:
+        18px auto 0;
+
+    overflow: hidden;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.10
+        );
+
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.loading-progress {
+
+    width: 0%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #5fbce8,
+            #d9f5ff
+        );
+
+    box-shadow:
+
+        0 0 10px
+        rgba(
+            95,
+            188,
+            232,
+            0.65
+        ),
+
+        0 0 24px
+        rgba(
+            95,
+            188,
+            232,
+            0.20
+        );
+
+    transition:
+        width 0.35s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
+}
+
+
+/* =========================================================
+   BOTTOM INFORMATION
+   ========================================================= */
+
+.loading-bottom {
+
+    width: min(
+        420px,
+        68vw
+    );
+
+    margin:
+        12px auto 0;
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+}
+
+
+.loading-percent {
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        0.65rem;
+
+    font-weight: 500;
+
+    letter-spacing:
+        0.15em;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.62
+        );
+
+}
+
+
+.loading-location {
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:
+        0.58rem;
+
+    letter-spacing:
+        0.28em;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.25
+        );
+
+}
+
+
+/* =========================================================
+   CORNER DETAILS
+   ========================================================= */
+
+.loading-corner {
+
+    position: absolute;
+
+    width: 28px;
+
+    height: 28px;
+
+    opacity: 0.35;
+
+}
+
+
+.loading-corner::before,
+.loading-corner::after {
+
+    content: "";
+
+    position: absolute;
+
+    background:
+        rgba(
+            135,
+            206,
+            235,
+            0.55
+        );
+
+}
+
+
+.top-left {
+
+    top: 32px;
+
+    left: 32px;
+
+}
+
+
+.top-left::before {
+
+    width: 28px;
+
+    height: 1px;
+
+    top: 0;
+
+    left: 0;
+
+}
+
+
+.top-left::after {
+
+    width: 1px;
+
+    height: 28px;
+
+    top: 0;
+
+    left: 0;
+
+}
+
+
+.top-right {
+
+    top: 32px;
+
+    right: 32px;
+
+}
+
+
+.top-right::before {
+
+    width: 28px;
+
+    height: 1px;
+
+    top: 0;
+
+    right: 0;
+
+}
+
+
+.top-right::after {
+
+    width: 1px;
+
+    height: 28px;
+
+    top: 0;
+
+    right: 0;
+
+}
+
+
+.bottom-left {
+
+    bottom: 32px;
+
+    left: 32px;
+
+}
+
+
+.bottom-left::before {
+
+    width: 28px;
+
+    height: 1px;
+
+    bottom: 0;
+
+    left: 0;
+
+}
+
+
+.bottom-left::after {
+
+    width: 1px;
+
+    height: 28px;
+
+    bottom: 0;
+
+    left: 0;
+
+}
+
+
+.bottom-right {
+
+    bottom: 32px;
+
+    right: 32px;
+
+}
+
+
+.bottom-right::before {
+
+    width: 28px;
+
+    height: 1px;
+
+    bottom: 0;
+
+    right: 0;
+
+}
+
+
+.bottom-right::after {
+
+    width: 1px;
+
+    height: 28px;
+
+    bottom: 0;
+
+    right: 0;
+
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.loading-error {
+
+    margin-top: 25px;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 0.12em;
+
+    color:
+        rgba(
+            255,
+            120,
+            120,
+            0.8
+        );
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .loading-brand {
+
+        font-size:
+            clamp(
+                2.5rem,
+                12vw,
+                4rem
+            );
+
+        letter-spacing:
+            0.20em;
+
+        padding-left:
+            0.20em;
+
+    }
+
+
+    .loading-line {
+
+        margin-top:
+            22px;
+
+        margin-bottom:
+            20px;
+
+    }
+
+
+    .loading-tagline {
+
+        letter-spacing:
+            0.34em;
+
+        padding-left:
+            0.34em;
+
+    }
+
+
+    .loading-status {
+
+        margin-top:
+            70px;
+
+    }
+
+
+    .loading-corner {
+
+        display: none;
+
+    }
+
+}
